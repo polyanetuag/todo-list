@@ -1,5 +1,13 @@
+import { Header } from "./componentes/Header";
+import { TaskList } from "./componentes/TaskList";
+
 function App() {
-  return <h1>TODO LIST</h1>;
+  return (
+    <div className="container">
+      <Header />
+      <TaskList />
+    </div>
+  );
 }
 
 export default App;
