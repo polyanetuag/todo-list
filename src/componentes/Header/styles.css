@@ -1,0 +1,10 @@
+.header {
+text-align: center;
+  color: #e2e0e0;
+  margin-bottom: 20px
+}
+
+.header_title {
+    font-size: 2rem;
+    color: #d40c0c;
+}
