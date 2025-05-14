@@ -1,0 +1,9 @@
+.input-new-task {
+  /* display: flex; */
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  background: rgb(75, 71, 71);
+  border-radius: 4px;
+  
+}
