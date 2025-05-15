@@ -18,7 +18,7 @@ export function AddTask({ onAddTask }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form-add-task" onSubmit={handleSubmit}>
       <input
         className="input-new-task"
         type="text"
@@ -26,7 +26,9 @@ export function AddTask({ onAddTask }) {
         value={taskText}
         onChange={(event) => setTaskText(event.target.value)}
       />
-      <button type="submit">Adicionar</button>
+      <button className="button-add-task" type="submit">
+        Adicionar
+      </button>
     </form>
   );
 }
