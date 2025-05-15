@@ -12,6 +12,16 @@ export function TaskList() {
     { id: 4, text: "Aprender Componentização", done: false },
   ]);
 
+  // filtros
+  const [filter, setFilter] = useState("all"); // tipos all, active e completed
+
+  // filtrando a lista de tarfeas
+  const filteredTask = tasks.filter((task) => {
+    if (filter === "active") return !task.done;
+    if (filter === "completed") return task.done;
+    return true;
+  });
+
   const toggleTask = (id) => {
     setTasks(
       tasks.map((task) => {
@@ -37,8 +47,17 @@ export function TaskList() {
   return (
     <section>
       <AddTask onAddTask={handleAddTask} />
+      <div className="filters">
+        <button onClick={() => setFilter("all")}>Todas</button>
+        <button className="active" onClick={() => setFilter("active")}>
+          Ativas
+        </button>
+        <button onClick={() => setFilter("completed")}>Concluídas</button>
+        <p>{filteredTask.length} tarefas restantes</p>
+      </div>
+      <div className="tasks-rest"></div>
       <ul className="tasks-list">
-        {tasks.map((task, index) => {
+        {filteredTask.map((task, index) => {
           return (
             <li key={index}>
               <Task task={task} quandoClicarNaTask={toggleTask} />

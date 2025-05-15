@@ -1,4 +1,37 @@
+.tasks-list {
+    padding: 0;
+
+}
+
 .tasks-list li {
     margin-bottom: 16px;
     list-style: none;
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.filters button {
+    padding: 8px;
+    border-radius: 4px;
+    background: rgb(75, 71, 71);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    
+}
+
+.filters button.active {
+    background: #646cff;
+    color: white;
+}
+
+.tasks-rest {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
