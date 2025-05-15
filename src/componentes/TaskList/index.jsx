@@ -53,9 +53,9 @@ export function TaskList() {
           Ativas
         </button>
         <button onClick={() => setFilter("completed")}>Concluídas</button>
-        <p>{filteredTask.length} tarefas restantes</p>
+        <p className="tasks-rest">{filteredTask.length} tarefas restantes</p>
       </div>
-      <div className="tasks-rest"></div>
+
       <ul className="tasks-list">
         {filteredTask.map((task, index) => {
           return (
