@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./styles.css";
 
+import { FiPlusCircle } from "react-icons/fi";
+
 export function AddTask({ onAddTask }) {
   const [taskText, setTaskText] = useState("");
 
@@ -27,7 +29,7 @@ export function AddTask({ onAddTask }) {
         onChange={(event) => setTaskText(event.target.value)}
       />
       <button className="button-add-task" type="submit">
-        Adicionar
+        Adicionar <FiPlusCircle />
       </button>
     </form>
   );
