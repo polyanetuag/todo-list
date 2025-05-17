@@ -36,3 +36,14 @@
     align-items: center;
     
 }
+
+.action-localstorage button {
+    padding: 8px;
+    margin-right: 8px;
+    border-radius: 4px;
+    background: rgb(214, 133, 133);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
