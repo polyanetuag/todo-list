@@ -94,8 +94,18 @@ export function TaskList() {
         >
           Concluídas
         </button>
+      </div>
+      <div className="action-localstorage">
         <button onClick={() => setTasks(tasks.filter((task) => !task.done))}>
           Remover Concluídas
+        </button>
+        <button
+          onClick={() => {
+            localStorage.removeItem("tasks");
+            setTasks([]);
+          }}
+        >
+          Resetar tarefas
         </button>
       </div>
 
