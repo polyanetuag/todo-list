@@ -5,12 +5,24 @@ import "./styles.css";
 import { AddTask } from "../AddTask";
 
 export function TaskList() {
-  const [tasks, setTasks] = useState([
-    // { id: 1, text: "Aprender React", done: false },
-    // { id: 2, text: "Aprender lógica", done: false },
-    // { id: 3, text: "Praticar CSS", done: true },
-    // { id: 4, text: "Aprender Componentização", done: false },
-  ]);
+  const [tasks, setTasks] = useState(() => {
+    const tasksDefault = [
+      { id: 1, text: "Aprender React", done: false },
+      { id: 2, text: "Aprender lógica", done: false },
+      { id: 3, text: "Praticar CSS", done: true },
+      { id: 4, text: "Aprender Componentização", done: false },
+    ];
+
+    // salva as tarefas ao iniciar
+    const savedTasks = localStorage.getItem("tasks");
+    // verifica se há algum dado corrompido
+    try {
+      if (savedTasks) return JSON.parse(savedTasks);
+      return tasksDefault;
+    } catch (error) {
+      console.error("Dados inválidos no localStorage:", error);
+    }
+  });
 
   // filtros
   const [filter, setFilter] = useState(() => {
@@ -51,9 +63,13 @@ export function TaskList() {
     ]);
   };
 
+  // useEffect(() => {
+  //   localStorage.setItem("taskFilter", filter);
+  // }, [filter]);
+
   useEffect(() => {
-    localStorage.setItem("taskFilter", filter);
-  }, [filter]);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   return (
     <section>
